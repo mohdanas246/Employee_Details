@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Codilar\UiForm\Api\EmployeeDetailsRepositoryInterface" type="Codilar\UiForm\Model\EmployeeReporitory"/>
+    <preference for="Codilar\UiForm\Api\Data\EmployeeDetailsInterface" type="Codilar\UiForm\Model\EmployeeDetail"/>
+    <preference for="Codilar\UiForm\Api\Data\EmployeeDetailsSearchResultInterface" type="Codilar\UiForm\Model\EmployeeDetailsSearchResult"/>
+    <preference for="Magento\Catalog\Model\Product" type="Codilar\UiForm\Model\Product"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="employee_listing_data_source" xsi:type="string">MyCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MyCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">employee_detail</argument>
+            <argument name="resourceModel" xsi:type="string">Codilar\UiForm\Model\ResourceModel\EmployeeDetail</argument>
+        </arguments>
+    </virtualType>
+
+</config>
