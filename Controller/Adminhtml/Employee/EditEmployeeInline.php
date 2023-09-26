@@ -9,9 +9,9 @@ use Codilar\UiForm\Model\ResourceModel\EmployeeDetail as DataResourceModel;
 
 class EditEmployeeInline extends Action
 {
-    protected $jsonFactory;
-    private $employeeDetailFactory;
-    private $dataResourceModel;
+    protected JsonFactory $jsonFactory;
+    private EmployeeDetailFactory $employeeDetailFactory;
+    private DataResourceModel $dataResourceModel;
 
     public function __construct(
         Context $context,

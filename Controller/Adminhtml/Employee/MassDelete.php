@@ -10,16 +10,16 @@ use Magento\Framework\View\Result\PageFactory;
 
 class MassDelete extends Action
 {
-    protected $_resultPageFactory;
+    protected PageFactory $_resultPageFactory;
     /**
      * @var Filter
      */
-    protected $filter;
+    protected Filter $filter;
 
     /**
      * @var CollectionFactory
      */
-    protected $collectionFactory;
+    protected CollectionFactory $collectionFactory;
 
     /**
      * @var EmployeeResource
@@ -45,7 +45,7 @@ class MassDelete extends Action
             //dd(get_class_methods($data));
             $data->delete();
         }
-        $this->messageManager->addSuccessMessage($size . "Employess deleted successfully");
+        $this->messageManager->addSuccessMessage($size . "Employees deleted successfully");
         $redirect = $this->resultRedirectFactory->create();
         $redirect->setPath('uiform/employee/employeegrid');
         return $redirect ;

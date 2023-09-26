@@ -38,8 +38,8 @@ class Save extends Action
     {
         $resultRedirect = $this->resultRedirectFactory->create();
         if (!$this->getRequest()->isPost()) {
-            $this->messageManager->addError(__("Something went wrong"));
-            return $resultRedirect->setPath('*/*/');
+            $this->messageManager->addErrorMessage(__("Something went wrong"));
+            return $resultRedirect->setPath('*/*/employeegrid');
         }
         try {
             $model = $this->employeeDetailFactory->create();
@@ -50,12 +50,12 @@ class Save extends Action
             $model->setData($params);
             $model->save();
             if ($model->getId()) {
-                $this->messageManager->addSuccess(__("Employee saved successfully"));
-                return $resultRedirect->setPath('*/*/edit/id/'.$model->getId());
+                $this->messageManager->addSuccessMessage(__("Employee saved successfully"));
+                return $resultRedirect->setPath('*/*/employeegrid/'.$model->getId());
             }
         } catch (\Exception $e) {
-            $this->messageManager->addError(__("Something went wrong"));
-            return $resultRedirect->setPath('*/*/edit');
+            $this->messageManager->addErrorMessage(__("Something went wrong"));
+            return $resultRedirect->setPath('*/*/employeegrid');
         }
     }
 }

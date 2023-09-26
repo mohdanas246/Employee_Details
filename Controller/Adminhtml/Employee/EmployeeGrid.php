@@ -7,7 +7,7 @@ use Magento\Framework\View\Result\PageFactory;
 
 class EmployeeGrid extends Action
 {
-    protected $_resultPageFactory;
+    protected PageFactory $_resultPageFactory;
     public function __construct(Context $context, PageFactory $resultPageFactory) {
         $this->_resultPageFactory = $resultPageFactory;
         return parent::__construct($context);

@@ -35,10 +35,10 @@ interface EmployeeDetailsRepositoryInterface
     public function delete(EmployeeDetailsInterface $employee);
 
     /**
-     * @param int $employeeId
+     * @param int $entity_id
      * @return boolean
      */
-    public function deleteById($employeeId);
+    public function deleteById($entity_id);
 
     /**
      * @param SearchCriteriaInterface $searchCriteria

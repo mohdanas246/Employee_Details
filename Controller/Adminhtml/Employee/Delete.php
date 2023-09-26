@@ -26,9 +26,13 @@ class Delete extends Action
         $id = $this->getRequest()->getParam('entity_id');
         try {
             $this->employeeRepository->deleteById($id);
+            $this->messageManager->addSuccessMessage(__("Employee delete successfully"));
+
         }catch (\Exception $e)
         {
-            $this->messageManager->addErrorMessage($e->getMessage());
+//            $this->messageManager->addErrorMessage($e->getMessage());
+            $this->messageManager->addErrorMessage(__("Something went wrong"));
+
         }
         $redirect = $this->resultRedirectFactory->create();
         $redirect->setPath('uiform/employee/employeegrid');

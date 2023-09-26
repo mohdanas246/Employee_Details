@@ -20,13 +20,13 @@
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">employee_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
-            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <!--                    update_url refers to the entry point where ajax calls for filtering and sorting are send-->
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">id</item>
+                        <item name="indexField" xsi:type="string">entity_id</item>
                     </item>
                 </item>
             </argument>
@@ -75,7 +75,7 @@
                     <item name="saveUrl" xsi:type="url" path="uiform/employee/EditEmployeeInline"/>
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
-                <param name="indexField" xsi:type="string">id</param>
+                <param name="indexField" xsi:type="string">entity_id</param>
                 <param name="enabled" xsi:type="boolean">true</param>
                 <param name="selectProvider" xsi:type="string">employee_listing.employee_listing.employee_listing_columns.ids</param>
             </editorConfig>
@@ -92,10 +92,10 @@
         </settings>
         <selectionsColumn name="ids">
             <settings>
-                <indexField>id</indexField>
+                <indexField>entity_id</indexField>
             </settings>
         </selectionsColumn>
-        <column name="entity_id">
+            <column name="entity_id">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">ID</label>
@@ -139,12 +139,10 @@
                 <label translate="true">Address</label>
             </settings>
         </column>
-
-<!--        <actionsColumn name="actions" class="Codilar\UiForm\Ui\Component\Listing\Column\Actions">-->
-<!--            <settings>-->
-<!--                <label translate="true">Actions</label>-->
-<!--            </settings>-->
-<!--        </actionsColumn>-->
+        <actionsColumn name="actions" class="Codilar\UiForm\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <label translate="true">Actions</label>
+            </settings>
+        </actionsColumn>
        </columns>
-
 </listing>
